@@ -1,0 +1,81 @@
+﻿@model IEnumerable<E_CommerceLibrary.Models.Buyer>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buyers List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Buyers</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Buyer Name</th>
+                <th>Book</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var buyer in Model)
+            {
+                <tr>
+                    <td>@buyer.BuyerName</td>
+                    <td>@buyer.Book.BookName</td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = buyer.BuyerID }) |
+                        @Html.ActionLink("Details", "Details", new { id = buyer.BuyerID }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = buyer.BuyerID })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @Html.ActionLink("Add New Buyer", "Create")
+
+</body>
+</html>

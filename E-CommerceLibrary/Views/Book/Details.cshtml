@@ -1,0 +1,61 @@
+﻿@model E_CommerceLibrary.Models.Book
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Book Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        dl {
+            margin: 20px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+
+        dt {
+            font-weight: bold;
+        }
+
+        dd {
+            margin-left: 20px;
+        }
+
+        .back-link {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Book Details</h2>
+
+    <dl>
+        <dt>Book Name</dt>
+        <dd>@Model.BookName</dd>
+
+        <dt>Author</dt>
+        <dd>@Model.author</dd>
+
+        <dt>Genre</dt>
+        <dd>@Model.genre</dd>
+    </dl>
+
+    @Html.ActionLink("Back to List", "Index", null, new { @class = "back-link" })
+
+</body>
+</html>

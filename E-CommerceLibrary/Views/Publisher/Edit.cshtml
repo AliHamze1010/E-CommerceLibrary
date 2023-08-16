@@ -1,0 +1,70 @@
+﻿@model E_CommerceLibrary.Models.Publisher
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Publisher</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .form-horizontal {
+            max-width: 400px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+        }
+
+        .control-label {
+            font-weight: bold;
+        }
+
+        .col-md-10 {
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        .btn-default {
+            background-color: #f0f0f0;
+            border-color: #ccc;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Edit Publisher</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.PublisherID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.PublisherName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.PublisherName)
+                    @Html.ValidationMessageFor(model => model.PublisherName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>

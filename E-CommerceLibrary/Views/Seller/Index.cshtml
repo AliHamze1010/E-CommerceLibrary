@@ -1,0 +1,78 @@
+﻿@model IEnumerable<E_CommerceLibrary.Models.Seller>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sellers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        table {
+            width: 50%;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        .btn-default {
+            background-color: #f0ad4e;
+            border-color: #eea236;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+            .btn-default:hover {
+                background-color: #e38d13;
+                border-color: #e27a04;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Sellers</h2>
+
+    <p>
+        <a href="@Url.Action("Create")" class="btn btn-default">Create New Seller</a>
+    </p>
+
+    <table>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.SellerName)</th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.SellerName)</td>
+                <td>
+                    <a href="@Url.Action("Edit", new { id = item.SellerID })" class="btn btn-default">Edit</a>
+                    <a href="@Url.Action("Details", new { id = item.SellerID })" class="btn btn-default">Details</a>
+                    <a href="@Url.Action("Delete", new { id = item.SellerID })" class="btn btn-default">Delete</a>
+                </td>
+            </tr>
+        }
+    </table>
+
+</body>
+</html>

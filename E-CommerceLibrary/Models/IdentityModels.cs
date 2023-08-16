@@ -25,6 +25,10 @@ namespace E_CommerceLibrary.Models
         {
         }
 
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Buyer> Buyers { get; set; }
+        public DbSet<Seller> Sellers { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

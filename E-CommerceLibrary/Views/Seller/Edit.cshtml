@@ -1,0 +1,86 @@
+﻿@model E_CommerceLibrary.Models.Seller
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit Seller</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .form-horizontal {
+            width: 50%;
+            margin: 0 auto;
+            padding: 15px;
+            background-color: white;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            text-align: right;
+        }
+
+        .col-md-2, .col-md-10 {
+            width: 100%;
+        }
+
+        .btn-default {
+            background-color: #f0ad4e;
+            border-color: #eea236;
+            color: white;
+        }
+
+            .btn-default:hover {
+                background-color: #e38d13;
+                border-color: #e27a04;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>Edit Seller</h2>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            @Html.HiddenFor(model => model.SellerID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.SellerName, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.SellerName)
+                    @Html.ValidationMessageFor(model => model.SellerName)
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.BookID, new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownListFor(model => model.BookID, (SelectList)ViewBag.Books)
+                    @Html.ValidationMessageFor(model => model.BookID)
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+﻿@model E_CommerceLibrary.Models.Buyer
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = $"{Model.BuyerName}'s Details";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        p {
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        strong {
+            font-weight: bold;
+        }
+
+        a {
+            background-color: #4CAF50;
+            color: white;
+            padding: 5px 10px;
+            text-decoration: none;
+            border-radius: 3px;
+        }
+
+            a:hover {
+                background-color: #45a049;
+            }
+    </style>
+</head>
+<body>
+
+    <h2>@ViewBag.Title</h2>
+
+    <p>
+        <strong>Buyer Name:</strong> @Model.BuyerName <br />
+        <strong>Book:</strong> @Model.Book.BookName <br /> <!-- Assuming the Book model has a BookName property -->
+    </p>
+
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BuyerID }) |
+    @Html.ActionLink("Back to list", "Index")
+
+</body>
+</html>
